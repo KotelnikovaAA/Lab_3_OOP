@@ -3,37 +3,26 @@
 //
 
 
+#include <iostream>
 #include "TicTacToeApplication.h"
 #include "GameModel/GameModelModule.h"
 #include "GameController/GameMenuController.h"
 #include "GameView/GameConsoleViewModule.h"
 
 void TicTacToe::TicTacToeApplication::launchGameApplication() {
+    try {
+        TicTacToeModelModule::GameModelModule model;
+        TicTacToeViewModule::GameConsoleViewModule viewer(model);
+        TicTacToeControllerModule::GameMenuController managerGameController(model);
 
-    TicTacToeModelModule::GameModelModule model;
-    TicTacToeViewModule::GameConsoleViewModule viewer(model); // create the viewer and subscribe to model
-    TicTacToeControllerModule::GameMenuController managerGameController(model);
+        managerGameController.requestNewGameSettings();
 
-    managerGameController.requestGameMode();
+        model.createNewGameArena(managerGameController.getGameSettings());
+        model.startPlayingGame();
 
-// TODO: вот эта штука отсюда уйдет в модель
+        viewer.printReasonForStoppingGameMessage();
 
-
-    for (auto currentObserver : model.getListObserves()) {
-        currentObserver->printRequestPlayerNamesMessage();
+    } catch (std::exception &exception) {
+        std::cerr << exception.what() << std::endl;
     }
-    managerGameController.requestPlayerNamesMessage();
-
-    auto gameSettings = managerGameController.getGameSettings();
-    model.createNewGameArena(gameSettings);
-
-
-    startPlayingGame(); --- // некст строки это и есть этот метод
-    managerGameController.requestFirstGameMove();
-    while (!model.isReasonForStoppingGame()) {
-        managerGameController.requestNextGameMove();
-    }
-
-    viewer.printReasonForStoppingGameMessage();
-
 }

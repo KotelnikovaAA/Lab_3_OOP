@@ -1,23 +1,34 @@
 //
-// Created by Anna on 13.01.2021.
+// Created by Anna on 18.01.2021.
 //
 
 #ifndef LAB_3_ABSTRACTGAMEPLAYER_H
 #define LAB_3_ABSTRACTGAMEPLAYER_H
 
 #include <string>
-#include "AbstractGameLabel.h"
-#include "../GameController/AbstractGameController.h"
+#include "../GameController/GamepadController.h"
 
 namespace TicTacToeModelModule {
 
     class AbstractGamePlayer {
-    private:
-        AbstractGameController gamepad_;
+
+    protected:
+        TicTacToeControllerModule::GamepadController gamepad_;
+
         std::string name_;
-        AbstractGameLabel label_;
+
+        GAME_LABEL_TYPES label_;
 
     public:
+
+        // TODO: как написать этот конструктор? Нужно списков инициализаций инициализировать gamepad_ , полем которого
+        //  является ссылка на модель, поэтому нужно использовать конструктор абстрактного класса, для которого уже
+        //  определен конструктор списком инициализаций
+        AbstractGamePlayer(const std::string &name, const GAME_LABEL_TYPES &labelType, const GameModelModule &model)
+                : name_(name), label_(labelType) {
+            TicTacToeControllerModule::AbstractGameController gamepad(model);
+            gamepad_ = gamepad;
+        };
 
         virtual ~AbstractGamePlayer() = default;
 
@@ -25,7 +36,7 @@ namespace TicTacToeModelModule {
 
         [[nodiscard]] std::string getPlayerName() const;
 
-        [[nodiscard]] AbstractGameLabel getPlayerLabel() const;
+        TicTacToeModelModule::GAME_LABEL_TYPES getPlayerLabel() const;
 
     };
 

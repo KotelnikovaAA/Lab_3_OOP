@@ -2,6 +2,7 @@
 // Created by Anna on 13.01.2021.
 //
 
+#include <iostream>
 #include "GameSettings.h"
 
 void TicTacToeModelModule::GameSettings::setGameMode(const gameMode mode) {
@@ -12,20 +13,10 @@ TicTacToeModelModule::gameMode TicTacToeModelModule::GameSettings::getGameMode()
     return userGameMode_;
 }
 
-void TicTacToeModelModule::GameSettings::setFirstPlayerName(const std::string name) {
-    firstPlayerName_ = name;
+void TicTacToeModelModule::GameSettings::setPlayerNameById(const size_t playerId, const std::string &name) {
+    playerNamesByIdMap[playerId] = name;
 }
 
-std::string TicTacToeModelModule::GameSettings::getFirstPlayerName() const {
-    return firstPlayerName_;
+std::string TicTacToeModelModule::GameSettings::getPlayerNameById(const size_t playerId) const {
+    return playerNamesByIdMap.at(playerId);
 }
-
-void TicTacToeModelModule::GameSettings::setSecondPlayerName(const std::string name) {
-    secondPlayerName_ = name;
-}
-
-std::string TicTacToeModelModule::GameSettings::getSecondPlayerName() const {
-    return secondPlayerName_;
-}
-
-

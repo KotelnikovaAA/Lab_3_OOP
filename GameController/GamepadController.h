@@ -13,6 +13,8 @@ namespace TicTacToeControllerModule {
     class GamepadController : public AbstractGameController {
     private:
         PlayerActionsValidator validator_;
+
+
     };
 
 }

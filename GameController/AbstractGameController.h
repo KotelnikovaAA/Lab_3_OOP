@@ -14,7 +14,7 @@ namespace TicTacToeControllerModule {
         TicTacToeModelModule::GameModelModule &model_;
 
     public:
-        explicit AbstractGameController(TicTacToeModelModule::GameModeModule &model) : model_(model) {};
+        explicit AbstractGameController(TicTacToeModelModule::GameModelModule &model) : model_(model) {};
 
         virtual ~AbstractGameController() = default;
     };

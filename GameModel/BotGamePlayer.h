@@ -12,7 +12,8 @@ namespace TicTacToeModelModule {
     class BotGamePlayer : public AbstractGamePlayer {
 
     public:
-        BotGamePlayer();
+        BotGamePlayer(const std::string &name, const GAME_LABEL_TYPES &labelType,
+                      const GameModelModule &model) : AbstractGamePlayer(name, labelType, model) {};
 
         ~BotGamePlayer();
 

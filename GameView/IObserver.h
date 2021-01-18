@@ -15,9 +15,11 @@ namespace TicTacToeViewModule {
 
         virtual void printRequestGameModeMessage() = 0;
 
-        virtual void printRequestPlayerNamesMessage() = 0;
+        virtual void printInfoAboutInvalidGameMode() = 0;
 
-        virtual  void printInfoAboutInvalidGameMode() = 0;
+        virtual void printRequestPlayerNameMessage(const size_t playerId) = 0;
+
+        virtual void printInfoAboutInvalidPlayerNameFormat(const size_t playerId) = 0;
 
         virtual void printReasonForStoppingGameMessage() = 0;
     };
