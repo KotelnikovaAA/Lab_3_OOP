@@ -6,9 +6,18 @@
 #define LAB_3_ABSTRACTGAMEVALIDATOR_H
 
 
+#include <sstream>
+
 namespace TicTacToeControllerModule {
 
     class AbstractGameValidator {
+    public:
+
+        bool isCorrectStreamStateAfterReadingInputData(const std::istringstream &stream);
+
+        bool isStreamFailedAfterReadingInputData(const std::istringstream &stream);
+
+        bool isStreamReachedEndOfFile(const std::istringstream &stream);
 
     };
 

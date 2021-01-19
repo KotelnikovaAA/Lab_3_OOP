@@ -14,6 +14,18 @@ namespace TicTacToeControllerModule {
     private:
         PlayerActionsValidator validator_;
 
+        bool isExternalCellNumberUndefined();
+
+    public:
+        GamepadController(const TicTacToeModelModule::GameModelModule &model) : AbstractGameController(model) {};
+
+        void requestCellCoordinatesFromActivePlayer();  // TODO: two next methods are contained in his method : if the field is fulled -> doubleCoordinates else singleCoordinate
+
+        void requestDoubleCellCoordinate();
+
+        void requestSingleCellCoordinate();
+
+        void readCellCoordinates();
 
     };
 

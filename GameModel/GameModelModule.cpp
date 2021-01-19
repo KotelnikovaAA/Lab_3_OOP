@@ -52,12 +52,28 @@ void TicTacToeModelModule::GameModelModule::requestObserversToPrintInfoAboutInva
     }
 }
 
+void TicTacToeModelModule::GameModelModule::requestObserversToPrintQuestionAboutExternalCellCoordinate(
+        const size_t currentInterlocutorId) {
+    for (auto observer : observersList_) {
+        observer->printQuestionAboutExternalCellCoordinate(currentInterlocutorId);
+    }
+}
 
-void
-TicTacToeModelModule::GameModelModule::createNewGameArena(
+void TicTacToeModelModule::GameModelModule::informObserversPlayerNames(
+        const TicTacToeModelModule::GameSettings &customGameSettings) const {
+    auto firstPlayerName = customGameSettings.getPlayerNameById(FIRST_PLAYER_ID);
+    auto secondPlayerName = customGameSettings.getPlayerNameById(SECOND_PLAYER_ID);
+    for (auto observer : observersList_) {
+        observer->setPlayerNames(firstPlayerName, secondPlayerName);
+    }
+}
+
+void TicTacToeModelModule::GameModelModule::createNewGameArena(
         const TicTacToeModelModule::GameSettings &customGameSettings) {
     createNewPlayingField();
     createGamePlayers(customGameSettings);
+
+    informObserversPlayerNames(customGameSettings);
 }
 
 
@@ -104,12 +120,14 @@ void TicTacToeModelModule::GameModelModule::startPlayingGame() {
     // TODO: get first player to make special step (he has to choose the field by himself compared to all next steps)
     // первый игрок делает ход и currentPlayerForMove становится второй игрок, далее цикл while
     // перед циклом должно быть истинно currentPlayerForMoveId == secondPlayerId
-    while (!isReasonForStoppingGame()) {
+
+    // не, у клеток есть undef number изначально => проверяет, если номер клетки неопределен, то запрашиваем обе координаты, иначе только одну внутреннюю
+
+    while (!isReasonForStoppingGame) {
         auto currentPlayer = matchesBetweenIdsAndPlayersMap.at(currentActivePlayerId);
         currentPlayer->makeMove();
         changeActivePlayerId();
     }
-
 }
 
 void TicTacToeModelModule::GameModelModule::changeActivePlayerId() {
@@ -119,6 +137,11 @@ void TicTacToeModelModule::GameModelModule::changeActivePlayerId() {
 bool TicTacToeModelModule::GameModelModule::isActiveFirstPlayer() {
     return currentActivePlayerId == FIRST_PLAYER_ID;
 }
+
+size_t TicTacToeModelModule::GameModelModule::getCurrentExternalCellNumber() {
+    return currentExternalCellNumber_;
+}
+
 
 void finishPlayingGame() {
 

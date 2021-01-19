@@ -65,13 +65,6 @@ void TicTacToeControllerModule::GameMenuController::changeCurrentInterlocutorToS
     currentInterlocutorId_ = SECOND_PLAYER;
 }
 
-std::string TicTacToeControllerModule::GameMenuController::readUserInputData() {
-    std::string inputData;
-    std::cin >> inputData;
-
-    return inputData;
-}
-
 TicTacToeModelModule::GameSettings TicTacToeControllerModule::GameMenuController::getGameSettings() const {
     return customGameSettings;
 }

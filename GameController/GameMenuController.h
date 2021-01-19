@@ -12,22 +12,17 @@
 namespace TicTacToeControllerModule {
 
     class GameMenuController : public AbstractGameController {
-    private:
 
-        enum interlocutorsId_ {
-            FIRST_PLAYER = 1,
-            SECOND_PLAYER = 2
-        };
+    private:
 
         TicTacToeModelModule::GameSettings customGameSettings;
 
         PlayerInputDataValidator validator_;
 
-        interlocutorsId_ currentInterlocutorId_ = FIRST_PLAYER;
-
         [[nodiscard]] bool isTwoPlayersGameModeSet() const;
 
     public:
+
         explicit GameMenuController(TicTacToeModelModule::GameModelModule &model)
                 : AbstractGameController(model) {};
 
@@ -42,8 +37,6 @@ namespace TicTacToeControllerModule {
         bool isCurrentInterlocutorFirstPlayer();
 
         void changeCurrentInterlocutorToSecondPlayer();
-
-        std::string readUserInputData();
 
         [[nodiscard]] TicTacToeModelModule::GameSettings getGameSettings() const;
     };

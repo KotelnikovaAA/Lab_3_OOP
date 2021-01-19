@@ -10,10 +10,6 @@ add_executable(lab_3 main.cpp
         GameView/GameConsoleViewModule.h
         GameController/AbstractGameController.h
         GameView/IObserver.h
-        GameModel/RealGamePlayer.cpp
-        GameModel/RealGamePlayer.h
-        GameModel/BotGamePlayer.cpp
-        GameModel/BotGamePlayer.h
         GameController/GameMenuController.cpp
         GameController/GameMenuController.h
         GameController/GamepadController.cpp
@@ -33,4 +29,4 @@ add_executable(lab_3 main.cpp
         GameModel/ExternalGameCell.cpp
         GameModel/ExternalGameCell.h
         GameModel/InternalGameCell.cpp
-        GameModel/InternalGameCell.h GameModel/AbstractGameField.h GameModel/AbstractGameCell.h GameModel/AbstractGamePlayer.cpp GameModel/AbstractGamePlayer.h GameModel/GameModelModule.cpp GameModel/GameModelModule.h)
+        GameModel/InternalGameCell.h GameModel/AbstractGameField.h GameModel/AbstractGameCell.h GameModel/GameModelModule.cpp GameModel/GameModelModule.h GameModel/AbstractGamePlayer.cpp GameModel/AbstractGamePlayer.h GameModel/RealGamePlayer.cpp GameModel/RealGamePlayer.h GameModel/BotGamePlayer.cpp GameModel/BotGamePlayer.h)

@@ -16,13 +16,14 @@ namespace TicTacToeViewModule {
     private:
         TicTacToeModelModule::GameModelModule &model_;
 
-        const std::string GAME_MODE_REQUEST_MESSAGE = "Please enter the number of players (1 or 2): \n";
-        const std::string PLAYER_NAME_REQUEST_MESSAGE = "Please enter player name: \n";
-        const std::string INVALID_GAME_MODE_MESSAGE = "Invalid players number was entered. Please enter again. \n";
-        const std::string INVALID_PLAYER_NAME_FORMAT_MESSAGE = "Incorrect player name were entered. Please enter again. \n";
+        const std::string GAME_MODE_REQUEST_MESSAGE = "Please enter the number of players (1 or 2): ";
+        const std::string PLAYER_NAME_REQUEST_MESSAGE = "Please enter player name: ";
+        const std::string INVALID_GAME_MODE_MESSAGE = "Invalid players number was entered. Please enter again.";
+        const std::string INVALID_PLAYER_NAME_FORMAT_MESSAGE = "Incorrect player name were entered. Please enter again.";
+        const std::string DOUBLE_CELL_COORDINATE_REQUEST_MESSAGE = "Please enter the coordinate of the external cell of the field: ";
 
-        const std::string FIRST_PLAYER_ADDRESS = "[FIRST_PLAYER] ";
-        const std::string SECOND_PLAYER_ADDRESS = "[SECOND_PLAYER] ";
+        std::string FIRST_PLAYER_ADDRESS = "[FIRST_PLAYER] ";
+        std::string SECOND_PLAYER_ADDRESS = "[SECOND_PLAYER] ";
 
         const std::map<size_t, std::string> addressingPlayersByIdMap {
                 {TicTacToeModelModule::FIRST_PLAYER_ID, FIRST_PLAYER_ADDRESS},
@@ -46,9 +47,13 @@ namespace TicTacToeViewModule {
 
         void printInfoAboutInvalidGameMode() override;
 
-        void printRequestPlayerNameMessage(size_t playerId) override;
+        void printRequestPlayerNameMessage(const size_t playerId) override;
 
-        void printInfoAboutInvalidPlayerNameFormat(size_t playerId) override;
+        void printInfoAboutInvalidPlayerNameFormat(const size_t playerId) override;
+
+        void setPlayerNames(const std::string &firstPlayerName, const std::string &secondPlayerName) override;
+
+        void printQuestionAboutExternalCellCoordinate(const size_t playerId) override;
 
         void printReasonForStoppingGameMessage() override;
     };

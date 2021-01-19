@@ -25,9 +25,7 @@ namespace TicTacToeModelModule {
         //  является ссылка на модель, поэтому нужно использовать конструктор абстрактного класса, для которого уже
         //  определен конструктор списком инициализаций
         AbstractGamePlayer(const std::string &name, const GAME_LABEL_TYPES &labelType, const GameModelModule &model)
-                : name_(name), label_(labelType) {
-            TicTacToeControllerModule::AbstractGameController gamepad(model);
-            gamepad_ = gamepad;
+                : name_(name), label_(labelType), gamepad_(model) {
         };
 
         virtual ~AbstractGamePlayer() = default;
@@ -41,5 +39,6 @@ namespace TicTacToeModelModule {
     };
 
 }
+
 
 #endif //LAB_3_ABSTRACTGAMEPLAYER_H

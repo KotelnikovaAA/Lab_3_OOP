@@ -1,5 +1,5 @@
 //
-// Created by Anna on 13.01.2021.
+// Created by Anna on 18.01.2021.
 //
 
 #ifndef LAB_3_BOTGAMEPLAYER_H
@@ -12,12 +12,12 @@ namespace TicTacToeModelModule {
     class BotGamePlayer : public AbstractGamePlayer {
 
     public:
-        BotGamePlayer(const std::string &name, const GAME_LABEL_TYPES &labelType,
-                      const GameModelModule &model) : AbstractGamePlayer(name, labelType, model) {};
 
-        ~BotGamePlayer();
+        BotGamePlayer(const std::string &name, const GAME_LABEL_TYPES &labelType, const GameModelModule &model)
+                : AbstractGamePlayer(name, labelType, model) {};
 
         void makeMove() override;
+
     };
 
 }

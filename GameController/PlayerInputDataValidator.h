@@ -18,12 +18,6 @@ namespace TicTacToeControllerModule {
 
     public:
 
-        bool isCorrectStreamStateAfterReadingInputData(const std::istringstream &stream);
-
-        bool isStreamFailedAfterReadingInputData(const std::istringstream &stream);
-
-        bool isStreamReachedEndOfFile(const std::istringstream &stream);
-
         bool isAcceptableGameMode(size_t mode);
 
         bool isCorrectFormatOfEnteredPlayerName(const std::string &name);

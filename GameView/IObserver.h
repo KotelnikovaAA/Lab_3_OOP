@@ -1,4 +1,4 @@
-2//
+//
 // Created by Anna on 12.01.2021.
 //
 
@@ -21,7 +21,12 @@ namespace TicTacToeViewModule {
 
         virtual void printInfoAboutInvalidPlayerNameFormat(const size_t playerId) = 0;
 
+        virtual void setPlayerNames(const std::string &firstPlayerName, const std::string &secondPlayerName) = 0;
+
+        virtual void printQuestionAboutExternalCellCoordinate(const size_t playerId) = 0;
+
         virtual void printReasonForStoppingGameMessage() = 0;
+
     };
 
 }
