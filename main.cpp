@@ -7,7 +7,7 @@ int main() {
     try {
         TicTacToe::TicTacToeApplication gameApplication;
         gameApplication.launchGameApplication();
-    } catch () {
+    } catch (...) {
 
     }
 

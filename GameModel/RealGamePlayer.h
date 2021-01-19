@@ -13,10 +13,7 @@ namespace TicTacToeModelModule {
 
     public:
 
-        RealGamePlayer(const std::string &name, const GAME_LABEL_TYPES &labelType, const GameModelModule &model)
-                : AbstractGamePlayer(name, labelType, model) {};
-
-        void makeMove() override;
+        void makeMove();
     };
 
 }

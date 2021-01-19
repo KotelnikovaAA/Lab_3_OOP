@@ -48,7 +48,7 @@ void TicTacToeModelModule::GameModelModule::requestObserversToPrintQuestionAbout
 void TicTacToeModelModule::GameModelModule::requestObserversToPrintInfoAboutInvalidPlayerNameFormat(
         size_t currentInterlocutorId) {
     for (auto observer : observersList_) {
-        observer->printInfoAboutInvalidPlayerNameFormat();
+        observer->printInfoAboutInvalidPlayerNameFormat(currentInterlocutorId);
     }
 }
 
@@ -84,13 +84,13 @@ void TicTacToeModelModule::GameModelModule::createNewPlayingField() {
 
 void
 TicTacToeModelModule::GameModelModule::createGamePlayers(const TicTacToeModelModule::GameSettings &customGameSettings) {
-    createRealGamePlayer(customGameSettings.getPlayerNameById(FIRST_PLAYER_ID), FIRST_PLAYER_ID, CROSS_LABEL);
+    createRealGamePlayer(customGameSettings.getPlayerNameById(FIRST_PLAYER_ID), FIRST_PLAYER_ID, TicTacToeModelModule::GAME_LABEL_TYPES::CROSS_LABEL);
 
     auto mode = customGameSettings.getGameMode();
     if (isTwoPlayersGameModeSet(mode)) {
-        createRealGamePlayer(customGameSettings.getPlayerNameById(SECOND_PLAYER_ID), SECOND_PLAYER_ID, ZERO_LABEL);
+        createRealGamePlayer(customGameSettings.getPlayerNameById(SECOND_PLAYER_ID), SECOND_PLAYER_ID, TicTacToeModelModule::GAME_LABEL_TYPES::ZERO_LABEL);
     } else {
-        createBotGamePlayer(customGameSettings.getPlayerNameById(SECOND_PLAYER_ID), SECOND_PLAYER_ID, ZERO_LABEL);
+        createBotGamePlayer(customGameSettings.getPlayerNameById(SECOND_PLAYER_ID), SECOND_PLAYER_ID, TicTacToeModelModule::GAME_LABEL_TYPES::ZERO_LABEL);
     }
 
     // TODO: можно написать так: isTwoPlayersGameModeSet(mode) == true ? createRealGamePlayer() : createBotGamePlayer()
@@ -98,14 +98,14 @@ TicTacToeModelModule::GameModelModule::createGamePlayers(const TicTacToeModelMod
 
 
 void TicTacToeModelModule::GameModelModule::createRealGamePlayer(const std::string &name, const size_t id,
-                                                                 const GAME_LABEL_TYPES &labelType) {
-    matchesBetweenIdsAndPlayersMap[id] = new RealGamePlayer(name, labelType, *this);
+                                                                 const TicTacToeModelModule::GAME_LABEL_TYPES labelType) {
+    //matchesBetweenIdsAndPlayersMap[id] = new RealGamePlayer(name, labelType, *this);
 }
 
 
 void TicTacToeModelModule::GameModelModule::createBotGamePlayer(const std::string &name, const size_t id,
-                                                                const GAME_LABEL_TYPES &labelType) {
-    matchesBetweenIdsAndPlayersMap[id] = new BotGamePlayer(name, labelType, *this);
+                                                                const TicTacToeModelModule::GAME_LABEL_TYPES labelType) {
+    //matchesBetweenIdsAndPlayersMap[id] = new BotGamePlayer(name, labelType, *this);
 }
 
 
@@ -145,12 +145,12 @@ size_t TicTacToeModelModule::GameModelModule::getCurrentExternalCellNumber() {
 
 void finishPlayingGame() {
 
-    deleteGameArena() // TODO: и что-то ещё ??
+ //   deleteGameArena() // TODO: и что-то ещё ??
 }
 
 
 //TODO: завершение игры
 void deleteGameArena() {
-    deleteGamePlayers();// TODO: нужен delete для field в конце игры: одно external, в нем 9 селлов, в каждом селле по интернал полю, в каждом поле по 9 селлов
-    deletePlayingField();
+//    deleteGamePlayers();// TODO: нужен delete для field в конце игры: одно external, в нем 9 селлов, в каждом селле по интернал полю, в каждом поле по 9 селлов
+//    deletePlayingField();
 }

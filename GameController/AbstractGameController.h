@@ -8,6 +8,7 @@
 #include <iostream>
 #include "../GameModel/GameModelModule.h"
 
+
 namespace TicTacToeControllerModule {
 
     class AbstractGameController {
@@ -23,16 +24,16 @@ namespace TicTacToeControllerModule {
         TicTacToeModelModule::GameModelModule &model_;
 
     public:
-        explicit AbstractGameController(TicTacToeModelModule::GameModelModule &model) : model_(model) {};
+        explicit AbstractGameController(TicTacToeModelModule::GameModelModule &model);
 
         virtual ~AbstractGameController() = default;
-
-        std::string readUserInputData() {
-            std::string inputData;
-            std::cin >> inputData;
-
-            return inputData;
-        }
+//
+//        std::string readUserInputData() {
+//            std::string inputData;
+//            std::cin >> inputData;
+//
+//            return inputData;
+//        }
     };
 
 }

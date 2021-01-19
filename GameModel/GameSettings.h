@@ -11,8 +11,8 @@
 
 namespace TicTacToeModelModule {
 
-    const size_t FIRST_PLAYER_ID = 1;
-    const size_t SECOND_PLAYER_ID = 2;
+    static const size_t FIRST_PLAYER_ID = 1;
+    static const size_t SECOND_PLAYER_ID = 2;
 
     enum gameMode {
         ONE_PLAYER = 1,

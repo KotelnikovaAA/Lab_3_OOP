@@ -3,3 +3,6 @@
 //
 
 #include "BotGamePlayer.h"
+
+
+void TicTacToeModelModule::BotGamePlayer::makeMove() /* override */ {}

@@ -3,7 +3,8 @@
 //
 
 #include "InternalGameCell.h"
+#include "GameLabelTypesEnum.h"
 
 TicTacToeModelModule::InternalGameCell::InternalGameCell() {
-    label_ = UNKNOWN_LABEL;
+    label_ = GAME_LABEL_TYPES::UNKNOWN_LABEL;
 }

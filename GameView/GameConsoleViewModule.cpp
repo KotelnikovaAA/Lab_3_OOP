@@ -34,3 +34,11 @@ void TicTacToeViewModule::GameConsoleViewModule::printQuestionAboutExternalCellC
 std::string TicTacToeViewModule::GameConsoleViewModule::addressPlayerById(const size_t id) {
     return addressingPlayersByIdMap.at(id);
 }
+
+void TicTacToeViewModule::GameConsoleViewModule::printReasonForStoppingGameMessage() {
+// TODO:
+}
+
+void TicTacToeViewModule::GameConsoleViewModule::update() {
+// TODO:
+}

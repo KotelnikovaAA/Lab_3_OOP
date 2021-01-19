@@ -29,4 +29,14 @@ add_executable(lab_3 main.cpp
         GameModel/ExternalGameCell.cpp
         GameModel/ExternalGameCell.h
         GameModel/InternalGameCell.cpp
-        GameModel/InternalGameCell.h GameModel/AbstractGameField.h GameModel/AbstractGameCell.h GameModel/GameModelModule.cpp GameModel/GameModelModule.h GameModel/AbstractGamePlayer.cpp GameModel/AbstractGamePlayer.h GameModel/RealGamePlayer.cpp GameModel/RealGamePlayer.h GameModel/BotGamePlayer.cpp GameModel/BotGamePlayer.h)
+        GameModel/InternalGameCell.h
+        GameModel/AbstractGameField.h
+        GameModel/AbstractGameCell.h
+        GameModel/GameModelModule.cpp
+        GameModel/GameModelModule.h
+        GameModel/AbstractGamePlayer.cpp
+        GameModel/AbstractGamePlayer.h
+        GameModel/RealGamePlayer.cpp
+        GameModel/RealGamePlayer.h
+        GameModel/BotGamePlayer.cpp
+        GameModel/BotGamePlayer.h GameModel/GameLabelTypesEnum.h GameModel/GameWinnerEnum.h GameController/AbstractGameController.cpp GameModel/AbstractGameCell.cpp)

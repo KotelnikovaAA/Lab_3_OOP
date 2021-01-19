@@ -4,6 +4,13 @@
 
 #include "AbstractGamePlayer.h"
 
+//TicTacToeModelModule::AbstractGamePlayer::AbstractGamePlayer(const std::string &name,
+//                                                             const TicTacToeModelModule::GAME_LABEL_TYPES labelType,
+//                                                             TicTacToeModelModule::GameModelModule &model) :
+//        name_(name), label_(labelType) {
+//    this -> gamepad_ = TicTacToeControllerModule::GamepadController(model);
+//}
+
 std::string TicTacToeModelModule::AbstractGamePlayer::getPlayerName() const {
     return name_;
 }

@@ -16,34 +16,23 @@
 #include "AbstractGamePlayer.h"
 #include "RealGamePlayer.h"
 #include "BotGamePlayer.h"
+#include "GameLabelTypesEnum.h"
 
 namespace TicTacToeModelModule {
 
-    enum WINNER {
-        NO_WINNER = 0,
-        FIRST_PLAYER = 1,
-        SECOND_PLAYER = 2
-    };
+    static const std::string UNKNOWN_GAME_LABEL = " ";
+    static const std::string CROSS_GAME_LABEL = "X";
+    static const std::string ZERO_GAME_LABEL = "O";
 
-    enum GAME_LABEL_TYPES {
-        UNKNOWN_LABEL = 0,
-        CROSS_LABEL = 1,
-        ZERO_LABEL = 2
-    };
+//    static const std::map<GAME_LABEL_TYPES, std::string> LABEL_VALUES_BY_TYPE_MAP{
+//            {GAME_LABEL_TYPES::UNKNOWN_LABEL, UNKNOWN_GAME_LABEL},
+//            {GAME_LABEL_TYPES::CROSS_LABEL,   CROSS_GAME_LABEL},
+//            {GAME_LABEL_TYPES::ZERO_LABEL,    ZERO_GAME_LABEL}
+//    };
 
-    const std::string UNKNOWN_GAME_LABEL = " ";
-    const std::string CROSS_GAME_LABEL = "X";
-    const std::string ZERO_GAME_LABEL = "O";
-
-    const std::map<GAME_LABEL_TYPES, std::string> LABEL_VALUES_BY_TYPE_MAP{
-            {UNKNOWN_LABEL, UNKNOWN_GAME_LABEL},
-            {CROSS_LABEL,   CROSS_GAME_LABEL},
-            {ZERO_LABEL,    ZERO_GAME_LABEL}
-    };
-
-    const size_t UNDEFINED_CELL_NUMBER = 0;
-    const size_t MIN_PERMISSIBLE_CELL_NUMBER = 1;
-    const size_t MAX_PERMISSIBLE_CELL_NUMBER = 9;
+    static const size_t UNDEFINED_CELL_NUMBER = 0;
+    static const size_t MIN_PERMISSIBLE_CELL_NUMBER = 1;
+    static const size_t MAX_PERMISSIBLE_CELL_NUMBER = 9;
 
     class GameModelModule {
     private:
@@ -67,9 +56,9 @@ namespace TicTacToeModelModule {
 
         void createGamePlayers(const TicTacToeModelModule::GameSettings &customGameSettings);
 
-        void createRealGamePlayer(const std::string &name, const size_t id, const GAME_LABEL_TYPES &labelType);
+        void createRealGamePlayer(const std::string &name, const size_t id, const TicTacToeModelModule::GAME_LABEL_TYPES labelType);
 
-        void createBotGamePlayer(const std::string &name, const size_t id, const GAME_LABEL_TYPES &labelType);
+        void createBotGamePlayer(const std::string &name, const size_t id, const TicTacToeModelModule::GAME_LABEL_TYPES labelType);
 
         bool isTwoPlayersGameModeSet(const gameMode &mode) const;
 

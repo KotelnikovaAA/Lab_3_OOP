@@ -7,7 +7,7 @@
 
 #include <vector>
 #include "AbstractGameCell.h"
-#include "GameModelModule.h"
+#include "GameWinnerEnum.h"
 
 namespace TicTacToeModelModule {
 
@@ -17,9 +17,9 @@ namespace TicTacToeModelModule {
     protected:
         bool isCompletelyFilled_ = false;
 
-        TicTacToeModelModule::GAME_LABEL_TYPES fieldLabel_ = UNKNOWN_LABEL; // TODO: почему он не видит?.....
+        TicTacToeModelModule::GAME_LABEL_TYPES fieldLabel_ = GAME_LABEL_TYPES::UNKNOWN_LABEL; // TODO: почему он не видит?.....
 
-        TicTacToeModelModule::WINNER winner_ = NO_WINNER;
+        TicTacToeModelModule::WINNER winner_ = WINNER::NO_WINNER;
 
         std::vector<AbstractGameCell*> fieldCells_;
 

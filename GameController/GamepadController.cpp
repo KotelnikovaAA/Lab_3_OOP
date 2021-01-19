@@ -4,6 +4,12 @@
 
 #include "GamepadController.h"
 
+
+TicTacToeControllerModule::GamepadController::GamepadController(TicTacToeModelModule::GameModelModule &model)
+        : AbstractGameController(model) {
+
+}
+
 void TicTacToeControllerModule::GamepadController::requestCellCoordinatesFromActivePlayer() {
     if(isExternalCellNumberUndefined()) {
         requestDoubleCellCoordinate();
@@ -20,27 +26,27 @@ bool TicTacToeControllerModule::GamepadController::isExternalCellNumberUndefined
 
 
 void TicTacToeControllerModule::GamepadController::requestDoubleCellCoordinate() {
-    requestExternalCellCoordinate();
+    //requestExternalCellCoordinate();
 
 
     // TODO: write method!!!
 }
 
-void TicTacToeControllerModule::GamepadController::requestExternalCellCoordinate() {
-    model_.requestObserversToPrintQuestionAboutExternalCellCoordinate(currentInterlocutorId_);
-    auto inputData = readUserInputData();
+//void TicTacToeControllerModule::GamepadController::requestExternalCellCoordinate() {
+//    model_.requestObserversToPrintQuestionAboutExternalCellCoordinate(currentInterlocutorId_);
+//    auto inputData = readUserInputData();
+//
+//    std::istringstream dataStream(inputData);
+//    size_t userCellNumber;
+//    dataStream >> userCellNumber;
 
-    std::istringstream dataStream(inputData);
-    size_t userCellNumber;
-    dataStream >> userCellNumber;
-
-    if (validator_.isCorrectStreamStateAfterReadingInputData(dataStream) && validator_.isAcceptableCellNumber(userCellNumber)) {
-        if ()
-        model_.setExternalCellCoordinate(userCellNumber);
-    } else {
-        model_.requestObserversToPrintInfoAboutInvalidInputCellNumber()
-    }
-}
+//    if (validator_.isCorrectStreamStateAfterReadingInputData(dataStream) && validator_.isAcceptableCellNumber(userCellNumber)) {
+//        if ()
+//        model_.setExternalCellCoordinate(userCellNumber);
+//    } else {
+//        model_.requestObserversToPrintInfoAboutInvalidInputCellNumber()
+//    }
+//}
 
 void TicTacToeControllerModule::GamepadController::requestSingleCellCoordinate() {
     // TODO: write method!!!
@@ -49,3 +55,4 @@ void TicTacToeControllerModule::GamepadController::requestSingleCellCoordinate()
 void TicTacToeControllerModule::GamepadController::readCellCoordinates() {
     // TODO: write method!!!
 }
+

@@ -11,6 +11,8 @@ namespace TicTacToeModelModule {
 
     class InternalGameCell : public AbstractGameCell {
 
+    public:
+        InternalGameCell();
     };
 
 }
