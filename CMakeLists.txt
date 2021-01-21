@@ -3,12 +3,14 @@ project(lab_3)
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(GCC_COVERAGE_COMPILE_FLAGS "-static")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
+
 add_executable(lab_3 main.cpp
         TicTacToeApplication.cpp
         TicTacToeApplication.h
         GameView/GameConsoleViewModule.cpp
         GameView/GameConsoleViewModule.h
-        GameController/AbstractGameController.h
         GameView/IObserver.h
         GameController/GameMenuController.cpp
         GameController/GameMenuController.h
@@ -30,13 +32,17 @@ add_executable(lab_3 main.cpp
         GameModel/ExternalGameCell.h
         GameModel/InternalGameCell.cpp
         GameModel/InternalGameCell.h
-        GameModel/AbstractGameField.h
-        GameModel/AbstractGameCell.h
         GameModel/GameModelModule.cpp
         GameModel/GameModelModule.h
-        GameModel/AbstractGamePlayer.cpp
         GameModel/AbstractGamePlayer.h
         GameModel/RealGamePlayer.cpp
         GameModel/RealGamePlayer.h
         GameModel/BotGamePlayer.cpp
-        GameModel/BotGamePlayer.h GameModel/GameLabelTypesEnum.h GameModel/GameWinnerEnum.h GameController/AbstractGameController.cpp GameModel/AbstractGameCell.cpp)
+        GameModel/BotGamePlayer.h
+        GameModel/GameLabelTypesEnum.h
+        GameModel/GameWinnerEnum.h
+        GameController/InterlocutorsIdEnum.h
+        GameModel/SpecialGameValues.h
+        GameView/OutputMessageDatabase.h
+        GameModel/PermissibleGameModes.h
+        GameView/OutputFormattingElements.h)

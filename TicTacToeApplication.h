@@ -8,8 +8,11 @@
 namespace TicTacToe {
 
     class TicTacToeApplication {
+
     public:
+
         void launchGameApplication();
+
     };
 
 }

@@ -2,7 +2,6 @@
 // Created by Anna on 12.01.2021.
 //
 
-
 #include <iostream>
 #include "TicTacToeApplication.h"
 #include "GameModel/GameModelModule.h"
@@ -10,7 +9,6 @@
 #include "GameView/GameConsoleViewModule.h"
 
 void TicTacToe::TicTacToeApplication::launchGameApplication() {
-    try {
         TicTacToeModelModule::GameModelModule model;
         TicTacToeViewModule::GameConsoleViewModule viewer(model);
         TicTacToeControllerModule::GameMenuController managerGameController(model);
@@ -19,10 +17,4 @@ void TicTacToe::TicTacToeApplication::launchGameApplication() {
 
         model.createNewGameArena(managerGameController.getGameSettings());
         model.startPlayingGame();
-
-        viewer.printReasonForStoppingGameMessage();
-
-    } catch (std::exception &exception) {
-        std::cerr << exception.what() << std::endl;
-    }
 }
